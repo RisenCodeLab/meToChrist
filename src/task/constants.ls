@@ -21,7 +21,7 @@ DIR.SRC_SITE_RESOURCE = P.resolve DIR.SRC_SITE, \resource
 DIR.SRC_TASK = P.resolve DIR.SRC, DIRNAME.TASK
 
 module.exports =
-  APPNAME: \me2christ
+  APPNAME: \meToChrist
   DIR    : DIR
   KJVPATH: P.resolve DIR.SRC_SITE_RESOURCE, \verses-1769.json
 

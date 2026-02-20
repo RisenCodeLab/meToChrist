@@ -1,14 +1,14 @@
-name       : \me2christ
+name       : \meToChrist
 version    : \3.8.0
-description: 'me2christ.com source code'
+description: 'meToChrist.com source code'
 private    : true
-homepage   : \https://github.com/christ-resurrected/me2christ
-bugs       : \https://github.com/christ-resurrected/me2christ/issues
+homepage   : \https://github.com/RisenCodeLab/meToChrist
+bugs       : \https://github.com/RisenCodeLab/meToChrist/issues
 license:   : \MIT
 author     : \andrew
 repository:
   type: \git
-  url : \https://github.com/christ-resurrected/me2christ
+  url : \https://github.com/RisenCodeLab/meToChrist
 scripts:
   build: 'bun -e "global.log = console.log; require(\'./task/build\').all()"'
   start: 'bun ./task/supervisor.js'
