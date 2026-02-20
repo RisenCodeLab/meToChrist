@@ -1,4 +1,4 @@
-name = 'meToChrist'
+name = 'metochrist'
 pages_build_output_dir = 'build/site'
 
 [vars]
