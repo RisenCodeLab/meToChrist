@@ -1,5 +1,5 @@
 name       : \meToChrist
-version    : \3.9.1
+version    : \3.10.0
 description: 'meToChrist.com source code'
 private    : true
 homepage   : \https://github.com/RisenCodeLab/meToChrist
