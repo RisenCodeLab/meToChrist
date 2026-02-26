@@ -20,8 +20,15 @@ module.exports =
       file = await prepareFile req.url
       statusCode = if file.found then 200 else 404
       mimeType = MIME_TYPES[file.ext] || MIME_TYPES.default
-      res.writeHead statusCode, {'Content-Encoding':\gzip, 'Content-Type':mimeType}
-      file.stream.pipe(Zlib.createGzip!).pipe res
+      acceptEnc = (req.headers['accept-encoding'] || '').toLowerCase!
+      if acceptEnc.indexOf 'gzip' isnt -1
+        # log 'client accepts gzip — compress on the fly and advertise Vary'
+        res.writeHead statusCode, {'Content-Encoding': \gzip, 'Content-Type': mimeType, 'Vary': 'Accept-Encoding'}
+        file.stream.pipe(Zlib.createGzip!).pipe res
+      else
+        # log 'client does not accept gzip — send raw bytes'
+        res.writeHead statusCode, {'Content-Type': mimeType}
+        file.stream.pipe res
       # log req.method, req.url, statusCode
     s.listen PORT, ->
       log "Http server listening on port #PORT"
